@@ -7,9 +7,11 @@ The decisions the project starts from. They are together in one file because the
 together, in one design conversation with a coding agent (Claude Opus 5), before any data
 existed. From here on, one decision per file.
 
-Worth noting: that conversation was itself an AI-assisted session, and nothing was recorded —
-the tool didn't exist yet. The first data point this project could have had is the one it
-missed.
+Worth noting: that conversation was itself an AI-assisted session, and the tool did not exist
+while it was happening. It was recorded at the end, from memory of the session, as
+`data/sessions/2026-08-31-01.md`. That makes it the weakest record in the set — a proper
+record is written against a method that already existed. It is kept anyway, marked as what
+it is.
 
 ---
 

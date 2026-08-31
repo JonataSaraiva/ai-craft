@@ -64,6 +64,8 @@ If 90 days show no measurable improvement, that is the result and it goes at the
 | [PRACTICES.md](PRACTICES.md) | The list: active, waiting, finished. |
 | `data/sessions/` | Raw session files. |
 | `log/` | Notebook — every design decision, dated, including the bad ones. |
+| `.claude/skills/` | Two Claude Code skills: `log-session` writes the session file at the end of a session, `weekly-review` runs the weekly pass. |
+| `scripts/tally.ps1` | Counts friction across session files. Counting only — it decides nothing. |
 
 ## Plan
 
