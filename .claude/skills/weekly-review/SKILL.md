@@ -22,18 +22,40 @@ thresholds exist precisely to override in-the-moment judgment, including yours.
 
 ### 1. Count
 
-Run the tally:
+Three greps. There is no tooling here and there does not need to be.
+
+Friction by type:
 
 ```bash
-powershell -File scripts/tally.ps1
+grep -h "class:" data/sessions/2*.md | sort | uniq -c | sort -rn
 ```
 
-It reports, per friction type: total occurrences, how many distinct sessions, and whether the
-3-in-3 line has been crossed. It also flags entries with no anchor and totals follow-through
-per practice.
+How many different sessions each type appears in — this is the second half of the 3-in-3
+line, and the count above does not tell you:
 
-Then read the entries themselves — the script counts labels, it cannot tell you that three
-entries filed under different types are really the same problem. That reading is your job.
+```bash
+for c in rework correction misdirection loop overreach regression blind-spot unclassified; do echo "$c: $(grep -l "class: $c" data/sessions/2*.md 2>/dev/null | wc -l)"; done
+```
+
+Entries with no anchor. The two numbers must be equal; if `anchor` is lower, some entry
+breaks METHOD.md §3.2 and has to be fixed or deleted:
+
+```bash
+echo "class: $(grep -h 'class:' data/sessions/2*.md | wc -l)  anchor: $(grep -h 'anchor:' data/sessions/2*.md | wc -l)"
+```
+
+Follow-through, when practices are active:
+
+```bash
+grep -h "practices_missed:" data/sessions/2*.md | grep -o "P[0-9]*" | sort | uniq -c
+```
+
+Then read the entries themselves. Grep counts labels; it cannot tell you that three entries
+filed under different types are really the same problem. That reading is the part that
+actually needs you.
+
+If one day these commands stop being enough — too slow, or a question they cannot answer —
+write the tool then, and record why. That moment is a result worth keeping, not a chore.
 
 ### 2. Sort out `unclassified`
 

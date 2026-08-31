@@ -65,7 +65,10 @@ If 90 days show no measurable improvement, that is the result and it goes at the
 | `data/sessions/` | Raw session files. |
 | `log/` | Notebook — every design decision, dated, including the bad ones. |
 | `.claude/skills/` | Two Claude Code skills: `log-session` writes the session file at the end of a session, `weekly-review` runs the weekly pass. |
-| `scripts/tally.ps1` | Counts friction across session files. Counting only — it decides nothing. |
+
+There is no tooling beyond that. Counting is four `grep` commands, listed in the
+weekly-review skill. A script gets written when grep stops being enough — and the day that
+happens is itself worth writing down.
 
 ## Plan
 
