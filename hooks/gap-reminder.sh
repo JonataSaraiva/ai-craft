@@ -10,11 +10,15 @@
 # It only reminds. It never writes a session file — a record written without
 # the human in the loop only contains the friction the agent chose to admit.
 #
-# Install: see the hooks entry in ~/.claude/settings.json.
+# Install: add it to the UserPromptSubmit hooks in ~/.claude/settings.json, and
+# tell it where your AI Craft repo is - as the first argument, or with the
+# AI_CRAFT_REPO environment variable:
+#
+#   bash /path/to/ai-craft/hooks/gap-reminder.sh /path/to/ai-craft
 
 set -u
 
-REPO="${AI_CRAFT_REPO:-$HOME/ai-craft}"
+REPO="${1:-${AI_CRAFT_REPO:-$HOME/ai-craft}}"
 GAP_MINUTES="${AI_CRAFT_GAP_MINUTES:-20}"
 STATE="$HOME/.claude/ai-craft-last-prompt"
 

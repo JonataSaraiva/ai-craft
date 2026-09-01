@@ -83,3 +83,10 @@ happens is itself worth writing down.
 
 *The project watches itself being built: every session spent building AI Craft is a session
 AI Craft records.*
+
+## Running it yourself
+
+Copy `.claude/skills/ai-craft-*` into `~/.claude/skills/` so the skills work from any project.
+Nothing in this repo hardcodes a machine path: the gap-reminder hook takes the repo location as
+its first argument (or from `AI_CRAFT_REPO`), and the log-session skill asks once if it does not
+know. `AI_CRAFT_GAP_MINUTES` changes the reminder threshold, which defaults to 20.

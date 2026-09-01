@@ -10,8 +10,9 @@ while the session is still in context.
 
 ## Before you write
 
-Read these two files from the AI Craft repo (default `~/ai-craft`; ask if
-it is somewhere else):
+Read these two files from the AI Craft repo. The path is deliberately not hardcoded here: use
+`$AI_CRAFT_REPO` if it is set, otherwise ask where the repo is — and offer to write the answer
+into this line of the reader's installed copy of the skill, so nobody is asked twice.
 
 - `METHOD.md` §3 and §4 — the friction types and the file format
 - `PRACTICES.md` — the currently active practices, so you can fill in
