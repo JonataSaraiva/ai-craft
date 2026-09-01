@@ -65,6 +65,7 @@ If 90 days show no measurable improvement, that is the result and it goes at the
 | `data/sessions/` | Raw session files. |
 | `log/` | Notebook — every design decision, dated, including the bad ones. |
 | `.claude/skills/` | Two Claude Code skills: `ai-craft-log-session` writes the session file at the end of a session, `ai-craft-weekly-review` runs the weekly pass. Copy both folders to `~/.claude/skills/` to use them from any project. |
+| `hooks/gap-reminder.sh` | Fires on every prompt. After a long gap it reminds you that the previous stretch of work is unlogged. Reminds only — it never writes a record. |
 
 There is no tooling beyond that. Counting is four `grep` commands, listed in the
 `ai-craft-weekly-review` skill. A script gets written when grep stops being enough — the day that
