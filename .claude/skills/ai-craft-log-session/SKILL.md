@@ -1,6 +1,6 @@
 ---
-name: log-session
-description: Record an AI Craft session file at the end of a working session. Use when the user says "log this session", "/log-session", "record this for AI Craft", or asks to write up the friction from the session that just happened. Writes one file to the AI Craft data/sessions/ directory following METHOD.md.
+name: ai-craft-log-session
+description: Record an AI Craft session file at the end of a working session. Use when the user says "log this session", "/ai-craft-log-session", "record this for AI Craft", or asks to write up the friction from the session that just happened. Works from any project, not only the AI Craft repo. Writes one file to the AI Craft data/sessions/ directory following METHOD.md.
 ---
 
 # Log a session

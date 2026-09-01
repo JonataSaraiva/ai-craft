@@ -1,6 +1,6 @@
 ---
-name: weekly-review
-description: Run the AI Craft weekly review — count friction across recent session files, check which types crossed the 3-in-3 threshold, judge active practices whose window is over, and update PRACTICES.md. Use when the user says "weekly review", "/weekly-review", or asks to go over the AI Craft sessions for the week.
+name: ai-craft-weekly-review
+description: Run the AI Craft weekly review — count friction across recent session files, check which types crossed the 3-in-3 threshold, judge active practices whose window is over, and update PRACTICES.md. Use when the user says "weekly review", "/ai-craft-weekly-review", or asks to go over the AI Craft sessions for the week. Must be run from inside the AI Craft repo.
 ---
 
 # Weekly review
