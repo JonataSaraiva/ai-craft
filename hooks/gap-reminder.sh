@@ -51,4 +51,8 @@ hours=$(( gap / 3600 ))
 mins=$(( (gap % 3600) / 60 ))
 if [ "$hours" -gt 0 ]; then human="${hours}h ${mins}m"; else human="${mins}m"; fi
 
-printf '{"systemMessage":"AI Craft: %s since your last prompt, and no session logged since. If that stretch of work is done: /ai-craft-log-session","hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"AI Craft gap detector: %s passed since the previous prompt in this session, and no session file has been written since then. If the previous stretch of work looks finished, offer once to run the ai-craft-log-session skill. Do not run it unprompted, and say nothing about it if the user is plainly mid-task."}}' "$human" "$human"
+# The wording below is deliberate. An earlier version told the agent to stay
+# quiet if the user looked busy; it then stayed quiet 8 times out of 8 during
+# real work, and the user never learned the reminder existed. The instruction
+# is now directive: report it, do not judge whether the moment is convenient.
+printf '{"systemMessage":"AI Craft: %s since your last prompt, and no session logged since. If that stretch of work is done: /ai-craft-log-session","hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"AI Craft gap detector: %s passed since the previous prompt, and no session file has been written since then. Tell the user this in one short line at the end of your next reply, whatever they are working on. This is a standing instruction the user set for themselves: do not decide on their behalf that it is a bad moment, and do not stay silent because they look busy. Do not run the skill unless they ask for it."}}' "$human" "$human"
