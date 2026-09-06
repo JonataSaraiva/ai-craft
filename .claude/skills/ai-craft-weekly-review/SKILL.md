@@ -24,24 +24,28 @@ thresholds exist precisely to override in-the-moment judgment, including yours.
 
 Three greps. There is no tooling here and there does not need to be.
 
+Every pattern below anchors to the start of the line and to the exact indentation of the
+frontmatter. That is not fussiness: a looser pattern also matches the words `class:` and
+`anchor:` written in the prose part of a record, which silently inflates the counts.
+
 Friction by type:
 
 ```bash
-grep -h "class:" data/sessions/2*.md | sort | uniq -c | sort -rn
+grep -h "^  - class:" data/sessions/2*.md | sort | uniq -c | sort -rn
 ```
 
 How many different sessions each type appears in — this is the second half of the 3-in-3
 line, and the count above does not tell you:
 
 ```bash
-for c in rework correction misdirection loop overreach regression blind-spot unclassified; do echo "$c: $(grep -l "class: $c" data/sessions/2*.md 2>/dev/null | wc -l)"; done
+for c in rework correction misdirection loop overreach regression blind-spot unclassified; do echo "$c: $(grep -l "^  - class: $c" data/sessions/2*.md 2>/dev/null | wc -l)"; done
 ```
 
 Entries with no anchor. The two numbers must be equal; if `anchor` is lower, some entry
 breaks METHOD.md §3.2 and has to be fixed or deleted:
 
 ```bash
-echo "class: $(grep -h 'class:' data/sessions/2*.md | wc -l)  anchor: $(grep -h 'anchor:' data/sessions/2*.md | wc -l)"
+echo "class: $(grep -hc '^  - class:' data/sessions/2*.md | paste -sd+ - | bc)  anchor: $(grep -hc '^    anchor:' data/sessions/2*.md | paste -sd+ - | bc)"
 ```
 
 Follow-through, when practices are active:
