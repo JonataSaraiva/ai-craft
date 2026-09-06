@@ -30,9 +30,20 @@ behalf that the moment is bad. Running the skill still requires the user to ask.
 
 ## What it cost
 
-Three days of real sessions on another project, 1100+ recorded events, went unlogged and cannot
-be recovered — the anchor rule (METHOD.md §3.2) needs a file and a line, and nobody remembers
-those days later. The instrument existed, ran correctly, and produced nothing.
+Three days of real sessions on another project, 1100+ recorded events, went unlogged.
+
+**Correction, same day:** this entry first said those sessions could not be recovered. That was
+wrong, and the user caught it. The session was still open and had never been compacted, and the
+transcript sits on disk with the file paths from every Edit and Write call in it — so the
+anchors the method requires are all still there. The reasoning behind the mistake is worth
+keeping: human memory fading was treated as the data being gone, when a transcript is data. That
+distinction is the whole reason the anchor rule exists, and it got inverted.
+
+What the delay actually costs is fidelity, not existence. Records written four days later are
+second-hand, and METHOD.md §4 rule 1 says a record is written at the end of its session. Those
+files are therefore marked in the body as reconstructed, so the weekly review can weigh them
+accordingly. If reconstruction ever becomes routine rather than a one-off repair, that needs an
+amendment, not a habit.
 
 ## Worth keeping in view
 
